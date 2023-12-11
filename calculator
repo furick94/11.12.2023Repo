@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    // Ввод оператора
+    printf("Введите оператор (+, -, *, /): ");
+    scanf("%c", &operator);
+
+    // Ввод двух чисел
+    printf("Введите два числа: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    // Выполнение операции в зависимости от введенного оператора
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            // Проверка деления на ноль
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                printf("Ошибка: деление на ноль\n");
+                return 1; // Возвращаем ненулевой код ошибки
+            }
+            break;
+        default:
+            printf("Ошибка: неверный оператор\n");
+            return 1; // Возвращаем ненулевой код ошибки
+    }
+
+    // Вывод результата
+    printf("Результат: %lf\n", result);
+
+    return 0; // Возвращаем ноль, что означает успешное выполнение программы
+}
